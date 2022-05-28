@@ -4,24 +4,19 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
   [SerializeField] Animator animator;
-  Direction CurrentDirection = Direction.CENTER;
-  float MoveSpeed = 4f;
+  public float MoveSpeed = 5f;
+
+  private Direction CurrentDirection = Direction.CENTER;
 
   float MaxClamp;
 
   void Start() {
+    SetWalkingBounds();
     RotateTo(CurrentDirection);
-
-
   }
 
 
   void Update() {
-    Camera cam = Camera.main;
-    float height = 2f * cam.orthographicSize;
-    float width = height * cam.aspect;
-    MaxClamp = width / 2;
-
     if (Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.D)) {
       animator.SetBool("isRunning", false);
       RotateTo(Direction.CENTER);
@@ -73,6 +68,13 @@ public class PlayerMovement : MonoBehaviour {
 
     transform.Rotate(new Vector3(0, rotation, 0));
     CurrentDirection = direction;
+  }
+
+  void SetWalkingBounds() {
+    Camera cam = Camera.main;
+    float height = 2f * cam.orthographicSize;
+    float width = height * cam.aspect;
+    MaxClamp = width / 2;
   }
 }
 
