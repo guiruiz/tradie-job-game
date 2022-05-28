@@ -1,11 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 
-public class ToolSpawnManager : MonoBehaviour {
-  private float SpawnDelay = .5f;
+public class ObjectSpawnManager : MonoBehaviour {
+  public float SpawnDelay = 1;
 
-  [SerializeField] GameObject[] ToolPrefabs;
+  [SerializeField] GameObject[] ObjectPrefabs;
+
   private float LastSpawnTime;
 
   void Start() {
@@ -15,7 +15,7 @@ public class ToolSpawnManager : MonoBehaviour {
   void Update() {
     float now = Time.time;
     // @todo Descrease SpawnDelay according to Time.time
-    if (now - LastSpawnTime > SpawnDelay) {
+    if (shouldSpawn(now)) {
       GameObject tool = GetRandomTool();
       SpawnTool(tool);
 
@@ -27,13 +27,17 @@ public class ToolSpawnManager : MonoBehaviour {
     float xSpawnRange = transform.localScale.x / 2;
     float posX = Random.Range(-xSpawnRange, xSpawnRange);
 
-    float posY = transform.transform.position.y;
+    float posY = transform.position.y;
 
     Instantiate(tool, new Vector3(posX, posY, 0), Quaternion.identity);
   }
 
+  protected bool shouldSpawn(float now) {
+    return now - LastSpawnTime > SpawnDelay;
+  }
+
   GameObject GetRandomTool() {
-    int randomToolIndex = Random.Range(0, ToolPrefabs.Length - 1);
-    return ToolPrefabs[randomToolIndex];
+    int randomToolIndex = Random.Range(0, ObjectPrefabs.Length - 1);
+    return ObjectPrefabs[randomToolIndex];
   }
 }
