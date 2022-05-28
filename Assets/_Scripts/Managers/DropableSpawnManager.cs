@@ -1,10 +1,10 @@
 
 using UnityEngine;
 
-public class ObjectSpawnManager : MonoBehaviour {
+public class DropableSpawnManager : MonoBehaviour {
   public float SpawnDelay = 1;
 
-  [SerializeField] GameObject[] ObjectPrefabs;
+  [SerializeField] DropableBase[] DropablePrefabs;
 
   private float LastSpawnTime;
 
@@ -16,14 +16,14 @@ public class ObjectSpawnManager : MonoBehaviour {
     float now = Time.time;
     // @todo Descrease SpawnDelay according to Time.time
     if (shouldSpawn(now)) {
-      GameObject tool = GetRandomTool();
+      DropableBase tool = GetRandomTool();
       SpawnTool(tool);
 
       LastSpawnTime = now;
     }
   }
 
-  void SpawnTool(GameObject tool) {
+  void SpawnTool(DropableBase tool) {
     float xSpawnRange = transform.localScale.x / 2;
     float posX = Random.Range(-xSpawnRange, xSpawnRange);
 
@@ -36,8 +36,8 @@ public class ObjectSpawnManager : MonoBehaviour {
     return now - LastSpawnTime > SpawnDelay;
   }
 
-  GameObject GetRandomTool() {
-    int randomToolIndex = Random.Range(0, ObjectPrefabs.Length - 1);
-    return ObjectPrefabs[randomToolIndex];
+  DropableBase GetRandomTool() {
+    int randomToolIndex = Random.Range(0, DropablePrefabs.Length - 1);
+    return DropablePrefabs[randomToolIndex];
   }
 }

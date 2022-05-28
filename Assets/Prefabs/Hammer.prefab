@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3652369056126905437}
   - component: {fileID: 1534360813685594258}
   - component: {fileID: 1534360813685594257}
-  - component: {fileID: 1534360813685594259}
+  - component: {fileID: 2557815107724879877}
   m_Layer: 0
   m_Name: Hammer
   m_TagString: Tool
@@ -115,7 +115,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 90
   m_CollisionDetection: 0
---- !u!114 &1534360813685594259
+--- !u!114 &2557815107724879877
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -124,7 +124,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 3003670320398536072}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 734a36494d7481a4e86935c9a0de501c, type: 3}
+  m_Script: {fileID: 11500000, guid: a688528fc8a267646959455e5f7fb6b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  degreesPerSecond: 90

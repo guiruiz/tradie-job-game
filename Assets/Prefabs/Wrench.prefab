@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 1727994370968086008}
   - component: {fileID: 2329709201231866461}
   - component: {fileID: 554010259030711959}
-  - component: {fileID: 2329709201231866460}
   - component: {fileID: 2329709201231866466}
   - component: {fileID: 2329709201231866467}
+  - component: {fileID: 2079027353949327699}
   m_Layer: 0
   m_Name: Wrench
   m_TagString: Tool
@@ -86,19 +86,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &2329709201231866460
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2067364524999917378}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 734a36494d7481a4e86935c9a0de501c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  degreesPerSecond: 90
 --- !u!65 &2329709201231866466
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -128,3 +115,15 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 90
   m_CollisionDetection: 0
+--- !u!114 &2079027353949327699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2067364524999917378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a688528fc8a267646959455e5f7fb6b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
