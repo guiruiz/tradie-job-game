@@ -667,7 +667,7 @@ GameObject:
   - component: {fileID: 592122689}
   - component: {fileID: 592122690}
   m_Layer: 0
-  m_Name: Heart 1
+  m_Name: Icon 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -865,6 +865,7 @@ Transform:
   - {fileID: 315695116}
   - {fileID: 903893846}
   - {fileID: 1831635893}
+  - {fileID: 997792295}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1108,6 +1109,54 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 978279617}
   m_CullTransparentMesh: 1
+--- !u!1 &997792294
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 997792295}
+  - component: {fileID: 997792296}
+  m_Layer: 0
+  m_Name: HealthManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &997792295
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 997792294}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 802134247}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &997792296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 997792294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1a081f3510425c41adc721d13d5e323, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HealthIcons:
+  - {fileID: 592122688}
+  - {fileID: 1752758036}
+  - {fileID: 1903260501}
 --- !u!1 &1104716140
 GameObject:
   m_ObjectHideFlags: 0
@@ -1306,7 +1355,7 @@ GameObject:
   - component: {fileID: 1752758037}
   - component: {fileID: 1752758038}
   m_Layer: 0
-  m_Name: Heart 2
+  m_Name: Icon 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1489,7 +1538,7 @@ GameObject:
   - component: {fileID: 1903260502}
   - component: {fileID: 1903260503}
   m_Layer: 0
-  m_Name: Heart 3
+  m_Name: Icon 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

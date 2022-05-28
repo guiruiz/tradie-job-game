@@ -12,9 +12,13 @@ public class PlayerHit : MonoBehaviour {
   void Update() {
 
   }
+
   void OnCollisionEnter(Collision col) {
     if (col.gameObject.tag == "Tool") {
       print("Game Over! Hit by a " + col.gameObject.name);
+    }
+    if (col.gameObject.tag == "Lead") {
+      Destroy(col.gameObject);
     }
   }
 }

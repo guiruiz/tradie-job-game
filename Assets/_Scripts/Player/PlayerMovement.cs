@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour {
 
   private Direction CurrentDirection = Direction.CENTER;
 
-  float MaxClamp;
+  float WalkingBounds;
 
   void Start() {
     SetWalkingBounds();
@@ -53,7 +53,7 @@ public class PlayerMovement : MonoBehaviour {
     };
 
     pos.x += x;
-    pos.x = Mathf.Clamp(pos.x, -MaxClamp, MaxClamp);
+    pos.x = Mathf.Clamp(pos.x, -WalkingBounds, WalkingBounds);
 
     transform.position = pos;
   }
@@ -74,7 +74,7 @@ public class PlayerMovement : MonoBehaviour {
     Camera cam = Camera.main;
     float height = 2f * cam.orthographicSize;
     float width = height * cam.aspect;
-    MaxClamp = width / 2;
+    WalkingBounds = width / 2;
   }
 }
 
