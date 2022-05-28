@@ -461,6 +461,7 @@ GameObject:
   - component: {fileID: 1831635893}
   - component: {fileID: 1831635895}
   - component: {fileID: 1831635894}
+  - component: {fileID: 1831635896}
   m_Layer: 0
   m_Name: ObjectSpawnManager
   m_TagString: Untagged
@@ -533,6 +534,24 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1831635892}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1831635896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1831635892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c85412c6f57aead4b92f48ec71e5d6bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ToolPrefabs:
+  - {fileID: 3003670320398536072, guid: 5db1b1f813d6a8e4dba7e5f0e638e219, type: 3}
+  - {fileID: 6956330138606097840, guid: 98157943675a8d44c8e033adecc83070, type: 3}
+  - {fileID: 1538658473452750584, guid: f9fc7a487bc8d7b4d9490ce7ea0c8b2e, type: 3}
+  - {fileID: 5854426159533579104, guid: 5a1acb1ccff11e744a79ea78323e7957, type: 3}
+  - {fileID: 2067364524999917378, guid: 955a60556e7da5b439bcf584eb942d21, type: 3}
 --- !u!1 &1913690556
 GameObject:
   m_ObjectHideFlags: 0
