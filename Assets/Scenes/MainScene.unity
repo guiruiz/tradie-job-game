@@ -463,7 +463,7 @@ GameObject:
   - component: {fileID: 1831635894}
   - component: {fileID: 1831635896}
   m_Layer: 0
-  m_Name: ObjectSpawnManager
+  m_Name: ToolSpawnManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -547,11 +547,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ToolPrefabs:
-  - {fileID: 3003670320398536072, guid: 5db1b1f813d6a8e4dba7e5f0e638e219, type: 3}
-  - {fileID: 6956330138606097840, guid: 98157943675a8d44c8e033adecc83070, type: 3}
-  - {fileID: 1538658473452750584, guid: f9fc7a487bc8d7b4d9490ce7ea0c8b2e, type: 3}
-  - {fileID: 5854426159533579104, guid: 5a1acb1ccff11e744a79ea78323e7957, type: 3}
   - {fileID: 2067364524999917378, guid: 955a60556e7da5b439bcf584eb942d21, type: 3}
+  - {fileID: 5854426159533579104, guid: 5a1acb1ccff11e744a79ea78323e7957, type: 3}
+  - {fileID: 1538658473452750584, guid: f9fc7a487bc8d7b4d9490ce7ea0c8b2e, type: 3}
+  - {fileID: 6956330138606097840, guid: 98157943675a8d44c8e033adecc83070, type: 3}
+  - {fileID: 3003670320398536072, guid: 5db1b1f813d6a8e4dba7e5f0e638e219, type: 3}
 --- !u!1 &1913690556
 GameObject:
   m_ObjectHideFlags: 0
