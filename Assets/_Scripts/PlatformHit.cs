@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlatformHit : MonoBehaviour {
 
   void OnCollisionEnter(Collision col) {
-    if (col.gameObject.tag == "Tool") {
+    if (col.gameObject.tag == "Tool" || col.gameObject.tag == "Lead") {
       Destroy(col.gameObject);
     }
   }
