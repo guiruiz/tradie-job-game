@@ -7,10 +7,11 @@ public abstract class DropableBase : MonoBehaviour {
   }
 
   protected virtual float RotationPerSecond() => 90f;
-
-  private void Rotate() {
-    transform.Rotate(new Vector3(0, RotationPerSecond(), 0) * Time.deltaTime);
+  protected virtual Vector3 RotationAxis() => new Vector3(0, RotationPerSecond(), 0);
+  protected void Rotate() {
+    transform.Rotate(RotationAxis() * Time.deltaTime);
   }
+
   public abstract DropableType GetDropableType();
 }
 

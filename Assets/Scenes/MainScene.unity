@@ -918,7 +918,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpawnDelay: 0.8
   DropablePrefabs:
-  - {fileID: 2557815107724879877, guid: 5db1b1f813d6a8e4dba7e5f0e638e219, type: 3}
+  - {fileID: 891727809379878621, guid: 5db1b1f813d6a8e4dba7e5f0e638e219, type: 3}
   - {fileID: 8828168307129727886, guid: c4deebe0791a36141ad5bc35504460fe, type: 3}
   - {fileID: 8260540898629189963, guid: f9fc7a487bc8d7b4d9490ce7ea0c8b2e, type: 3}
   - {fileID: 4214681028214288770, guid: 5a1acb1ccff11e744a79ea78323e7957, type: 3}

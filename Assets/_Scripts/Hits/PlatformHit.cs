@@ -8,7 +8,7 @@ public class PlatformHit : MonoBehaviour {
     GameObject colGameObject = col.gameObject;
     DropableBase dropable = colGameObject.GetComponent<DropableBase>();
 
-    if (dropable?.GetDropableType() == DropableType.TOOL || dropable?.GetDropableType() == DropableType.TOOL) {
+    if (dropable?.GetDropableType() == DropableType.TOOL || dropable?.GetDropableType() == DropableType.LEAD) {
       Destroy(colGameObject);
     }
   }
