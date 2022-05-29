@@ -11,6 +11,10 @@ public abstract class DropableBase : MonoBehaviour {
   private void Rotate() {
     transform.Rotate(new Vector3(0, RotationPerSecond(), 0) * Time.deltaTime);
   }
+  public abstract DropableType GetDropableType();
+}
 
-
+public enum DropableType {
+  TOOL = 'T',
+  LEAD = 'L',
 }
