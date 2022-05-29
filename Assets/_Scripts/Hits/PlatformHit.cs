@@ -5,8 +5,11 @@ using UnityEngine;
 public class PlatformHit : MonoBehaviour {
 
   void OnCollisionEnter(Collision col) {
-    if (col.gameObject.tag == "Tool" || col.gameObject.tag == "Lead") {
-      Destroy(col.gameObject);
+    GameObject colGameObject = col.gameObject;
+    DropableBase dropable = colGameObject.GetComponent<DropableBase>();
+
+    if (dropable?.GetDropableType() == DropableType.TOOL || dropable?.GetDropableType() == DropableType.TOOL) {
+      Destroy(colGameObject);
     }
   }
 }
