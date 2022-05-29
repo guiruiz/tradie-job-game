@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
   [SerializeField] Animator animator;
-  public float MoveSpeed = 5f;
+
+
+  public float WalkSpeed = 5f;
+  public float RunSpeed = 10f;
+
+  private float CurrentSpeed;
 
   private Direction CurrentDirection = Direction.CENTER;
 
@@ -40,6 +45,12 @@ public class PlayerMovement : MonoBehaviour {
       animator.SetBool("isRunning", false);
       RotateTo(Direction.CENTER);
     }
+
+    if (Input.GetKey(KeyCode.LeftShift)) {
+      CurrentSpeed = RunSpeed;
+    } else {
+      CurrentSpeed = WalkSpeed;
+    }
   }
 
   void MoveTo(Direction direction) {
@@ -47,7 +58,7 @@ public class PlayerMovement : MonoBehaviour {
 
     Vector3 pos = transform.position;
 
-    float x = MoveSpeed * Time.deltaTime;
+    float x = CurrentSpeed * Time.deltaTime;
     if (direction == Direction.LEFT) {
       x *= -1;
     };

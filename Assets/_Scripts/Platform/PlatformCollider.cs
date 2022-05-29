@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlatformHit : MonoBehaviour {
+public class PlatformCollider : MonoBehaviour {
 
   void OnCollisionEnter(Collision col) {
     GameObject colGameObject = col.gameObject;
