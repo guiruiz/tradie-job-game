@@ -2,54 +2,23 @@ using System;
 using UnityEngine;
 
 public class GameManager : StaticInstance<GameManager> {
-  public static event Action<GameState> OnBeforeStateChanged;
-  public static event Action<GameState> OnAfterStateChanged;
+  public static event Action OnGameStart;
+  public static event Action OnGameOver;
+  private bool isPlaying = false;
 
-  public GameState State { get; private set; }
-
-
-  void Start() {
-    ChangeState(GameState.Menu);
-  }
-
-  public void ChangeState(GameState newState) {
-    OnBeforeStateChanged?.Invoke(newState);
-
-    State = newState;
-    switch (newState) {
-      case GameState.Menu:
-        HandlePlaying();
-        break;
-      case GameState.Playing:
-        HandlePlaying();
-        break;
-      case GameState.GameOver:
-        HandleGameOver();
-        break;
-      default:
-        throw new ArgumentOutOfRangeException(nameof(newState), newState, null);
+  void Update() {
+    if (Input.GetKeyDown(KeyCode.Space) && !isPlaying) {
+      StartGame();
     }
-
-    OnAfterStateChanged?.Invoke(newState);
   }
 
-
-  private void HandleMenu() {
-    // show menu
-  }
-  private void HandlePlaying() {
-    // spawn enemies menu
+  public void StartGame() {
+    isPlaying = true;
+    OnGameStart?.Invoke();
   }
 
-  private void HandleGameOver() {
-    // show game over screen
+  public void GameOver() {
+    isPlaying = false;
+    OnGameOver?.Invoke();
   }
-
-}
-
-[Serializable]
-public enum GameState {
-  Menu = 0,
-  Playing = 1,
-  GameOver = 2,
 }

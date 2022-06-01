@@ -5,23 +5,35 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour {
   [SerializeField] Animator animator;
 
-
   public float WalkSpeed = 5f;
   public float RunSpeed = 10f;
-
   private float CurrentSpeed;
-
+  private float WalkingBounds;
   private Direction CurrentDirection = Direction.CENTER;
+  private bool CanWalk = false;
 
-  float WalkingBounds;
-
-  void Start() {
+  private void Awake() {
+    GameManager.OnGameStart += AllowWalk;
+    GameManager.OnGameOver += DisalloWWalk;
+  }
+  private void Start() {
     SetWalkingBounds();
     RotateTo(CurrentDirection);
   }
 
-
   void Update() {
+    // @todo Group actions
+    if (!CanWalk) {
+      animator.SetBool("isRunning", false);
+      RotateTo(Direction.CENTER);
+      return;
+    }
+
+    if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D)) {
+      animator.SetBool("isRunning", false);
+      RotateTo(Direction.CENTER);
+    }
+
     if (Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.D)) {
       animator.SetBool("isRunning", false);
       RotateTo(Direction.CENTER);
@@ -32,18 +44,12 @@ public class PlayerMovement : MonoBehaviour {
       animator.SetBool("isRunning", true);
       RotateTo(Direction.LEFT);
       MoveTo(Direction.LEFT);
-
     }
+
     if (Input.GetKey(KeyCode.D)) {
       animator.SetBool("isRunning", true);
       RotateTo(Direction.RIGHT);
       MoveTo(Direction.RIGHT);
-
-    }
-
-    if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D)) {
-      animator.SetBool("isRunning", false);
-      RotateTo(Direction.CENTER);
     }
 
     if (Input.GetKey(KeyCode.LeftShift)) {
@@ -51,6 +57,19 @@ public class PlayerMovement : MonoBehaviour {
     } else {
       CurrentSpeed = WalkSpeed;
     }
+  }
+
+  private void OnDestroy() {
+    GameManager.OnGameStart -= AllowWalk;
+    GameManager.OnGameOver -= DisalloWWalk;
+  }
+
+  void AllowWalk() {
+    CanWalk = true;
+  }
+
+  void DisalloWWalk() {
+    CanWalk = false;
   }
 
   void MoveTo(Direction direction) {

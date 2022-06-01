@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class RunTrail : MonoBehaviour {
-  [SerializeField] TrailRenderer renderer;
+  [SerializeField] TrailRenderer TrailRenderer;
   void Update() {
     if (Input.GetKey(KeyCode.LeftShift)) {
-      renderer.emitting = true;
+      TrailRenderer.emitting = true;
     } else {
-      renderer.emitting = false;
+      TrailRenderer.emitting = false;
     }
   }
 }

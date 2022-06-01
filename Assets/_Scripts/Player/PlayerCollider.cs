@@ -2,6 +2,9 @@ using System;
 using UnityEngine;
 
 public class PlayerCollider : MonoBehaviour {
+
+  // @ should this class be static?
+  // @ todo review static actions
   public static event Action<Tool> OnToolHit;
   public static event Action OnLeadClaimed;
 

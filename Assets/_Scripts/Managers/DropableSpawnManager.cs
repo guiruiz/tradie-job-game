@@ -1,42 +1,46 @@
 
+using System.Collections;
 using UnityEngine;
 
 public class DropableSpawnManager : MonoBehaviour {
-  public float SpawnDelay = 1;
-
+  public float SpawnDelay = 1f;
   [SerializeField] DropableBase[] DropablePrefabs;
+  private Coroutine SpawnRoutine;
 
-  private float LastSpawnTime;
-
-  void Start() {
-    LastSpawnTime = Time.time;
+  private void Awake() {
+    GameManager.OnGameStart += StartSpawning;
+    GameManager.OnGameOver += StopSpawning;
   }
 
-  void Update() {
-    float now = Time.time;
-    // @todo Descrease SpawnDelay according to Time.time
-    if (shouldSpawn(now)) {
-      DropableBase tool = GetRandomTool();
-      SpawnTool(tool);
+  private void OnDestroy() {
+    GameManager.OnGameStart -= StartSpawning;
+    GameManager.OnGameOver -= StopSpawning;
+  }
 
-      LastSpawnTime = now;
+  private void StartSpawning() {
+    SpawnRoutine = StartCoroutine(SpawnDropables());
+  }
+
+  private void StopSpawning() {
+    if (SpawnRoutine != null) {
+      StopCoroutine(SpawnRoutine);
     }
   }
 
-  void SpawnTool(DropableBase tool) {
-    float xSpawnRange = transform.localScale.x / 2;
-    float posX = Random.Range(-xSpawnRange, xSpawnRange);
+  IEnumerator SpawnDropables() {
+    while (true) {
+      float xSpawnRange = transform.localScale.x / 2;
+      float posX = Random.Range(-xSpawnRange, xSpawnRange);
+      float posY = transform.position.y;
 
-    float posY = transform.position.y;
+      DropableBase dropable = GetRandomDropable();
+      Instantiate(dropable, new Vector3(posX, posY, 0), Quaternion.identity);
 
-    Instantiate(tool, new Vector3(posX, posY, 0), Quaternion.identity);
+      yield return new WaitForSeconds(SpawnDelay);
+    }
   }
 
-  protected bool shouldSpawn(float now) {
-    return now - LastSpawnTime > SpawnDelay;
-  }
-
-  DropableBase GetRandomTool() {
+  DropableBase GetRandomDropable() {
     int randomToolIndex = Random.Range(0, DropablePrefabs.Length - 1);
     return DropablePrefabs[randomToolIndex];
   }

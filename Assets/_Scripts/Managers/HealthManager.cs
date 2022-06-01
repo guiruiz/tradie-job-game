@@ -43,11 +43,11 @@ public class HealthManager : StaticInstance<HealthManager> {
     setHealth(CurrentHealth - 1);
 
     if (CurrentHealth <= 0) {
-      Die(tool);
+      Die();
     }
   }
 
-  void Die(Tool tool) {
-    print("Game Over! Hit by a " + tool.gameObject.name);
+  void Die() {
+    GameManager.Instance.GameOver();
   }
 }
