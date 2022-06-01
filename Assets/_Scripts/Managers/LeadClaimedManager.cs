@@ -13,12 +13,13 @@ public class LeadClaimedManager : StaticInstance<HealthManager> {
     base.Awake();
     PlayerCollider.OnLeadClaimed += LeadClaimed;
   }
-  private void OnDestroy() {
-    PlayerCollider.OnLeadClaimed -= LeadClaimed;
-  }
 
   void Start() {
     SetClaimCounter(LeadClaimedCount);
+  }
+
+  private void OnDestroy() {
+    PlayerCollider.OnLeadClaimed -= LeadClaimed;
   }
 
   void SetClaimCounter(int claim) {
