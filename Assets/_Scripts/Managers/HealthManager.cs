@@ -10,13 +10,15 @@ public class HealthManager : StaticInstance<HealthManager> {
 
   protected override void Awake() {
     base.Awake();
+    GameManager.OnGameStart += Initialize;
     PlayerCollider.OnToolHit += TakeDamage;
   }
   private void OnDestroy() {
+    GameManager.OnGameStart -= Initialize;
     PlayerCollider.OnToolHit -= TakeDamage;
   }
 
-  void Start() {
+  void Initialize() {
     setHealth(HealthIcons.Length);
   }
 

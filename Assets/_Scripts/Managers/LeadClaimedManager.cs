@@ -7,18 +7,21 @@ public class LeadClaimedManager : StaticInstance<HealthManager> {
 
   [SerializeField] TextMeshProUGUI ClaimCounter;
 
-  private int LeadClaimedCount = 0;
+  private int LeadClaimedCount;
 
   protected override void Awake() {
     base.Awake();
+    GameManager.OnGameStart += Initialize;
     PlayerCollider.OnLeadClaimed += LeadClaimed;
   }
 
-  void Start() {
+  void Initialize() {
+    LeadClaimedCount = 0;
     SetClaimCounter(LeadClaimedCount);
   }
 
   private void OnDestroy() {
+    GameManager.OnGameStart -= Initialize;
     PlayerCollider.OnLeadClaimed -= LeadClaimed;
   }
 
