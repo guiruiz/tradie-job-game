@@ -2,8 +2,8 @@ using System;
 using UnityEngine;
 
 public class GameManager : StaticInstance<GameManager> {
-  public static event Action OnGameStart;
-  public static event Action OnGameOver;
+  public event Action OnGameStart;
+  public event Action OnGameOver;
   private bool isPlaying = false;
 
   void Update() {

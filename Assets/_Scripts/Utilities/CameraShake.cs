@@ -8,8 +8,8 @@ public class CameraShake : MonoBehaviour {
   [SerializeField] float Frequency = 1f;
 
 
-  private void Awake() {
-    PlayerCollider.OnToolHit += ShakeCamera;
+  private void Start() {
+    PlayerCollider.Instance.OnToolHit += ShakeCamera;
   }
 
   void ShakeCamera(Tool _) {

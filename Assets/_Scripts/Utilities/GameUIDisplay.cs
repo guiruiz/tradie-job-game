@@ -3,19 +3,12 @@ public class GameUIDisplay : MonoBehaviour {
   [SerializeField] GameObject GameStartUI;
   [SerializeField] GameObject GameOverUI;
 
-  void Awake() {
-    GameManager.OnGameStart += OnGameStart;
-    GameManager.OnGameOver += OnGameOver;
-  }
-
   void Start() {
+    GameManager.Instance.OnGameStart += OnGameStart;
+    GameManager.Instance.OnGameOver += OnGameOver;
+
     GameStartUI.SetActive(true);
     GameOverUI.SetActive(false);
-  }
-
-  void OnDestroy() {
-    GameManager.OnGameStart -= OnGameStart;
-    GameManager.OnGameOver -= OnGameOver;
   }
 
   void OnGameStart() {

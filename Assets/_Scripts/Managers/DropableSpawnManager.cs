@@ -7,16 +7,10 @@ public class DropableSpawnManager : MonoBehaviour {
   [SerializeField] DropableBase[] DropablePrefabs;
   private Coroutine SpawnRoutine;
 
-  private void Awake() {
-    GameManager.OnGameStart += StartSpawning;
-    GameManager.OnGameOver += StopSpawning;
+  void Start() {
+    GameManager.Instance.OnGameStart += StartSpawning;
+    GameManager.Instance.OnGameOver += StopSpawning;
   }
-
-  private void OnDestroy() {
-    GameManager.OnGameStart -= StartSpawning;
-    GameManager.OnGameOver -= StopSpawning;
-  }
-
   private void StartSpawning() {
     SpawnRoutine = StartCoroutine(SpawnDropables());
   }

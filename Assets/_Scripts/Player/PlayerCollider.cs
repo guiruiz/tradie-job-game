@@ -1,12 +1,10 @@
 using System;
 using UnityEngine;
 
-public class PlayerCollider : MonoBehaviour {
+public class PlayerCollider : StaticInstance<PlayerCollider> {
 
-  // @ should this class be static?
-  // @ todo review static actions
-  public static event Action<Tool> OnToolHit;
-  public static event Action OnLeadClaimed;
+  public event Action<Tool> OnToolHit;
+  public event Action OnLeadClaimed;
 
   void OnCollisionEnter(Collision col) {
     GameObject colGameObject = col.gameObject;

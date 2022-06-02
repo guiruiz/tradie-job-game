@@ -12,11 +12,10 @@ public class PlayerMovement : MonoBehaviour {
   private Direction CurrentDirection = Direction.CENTER;
   private bool CanWalk = false;
 
-  private void Awake() {
-    GameManager.OnGameStart += AllowWalk;
-    GameManager.OnGameOver += DisalloWWalk;
-  }
   private void Start() {
+    GameManager.Instance.OnGameStart += AllowWalk;
+    GameManager.Instance.OnGameOver += DisalloWWalk;
+
     SetWalkingBounds();
     RotateTo(CurrentDirection);
   }
@@ -59,10 +58,6 @@ public class PlayerMovement : MonoBehaviour {
     }
   }
 
-  private void OnDestroy() {
-    GameManager.OnGameStart -= AllowWalk;
-    GameManager.OnGameOver -= DisalloWWalk;
-  }
 
   void AllowWalk() {
     CanWalk = true;

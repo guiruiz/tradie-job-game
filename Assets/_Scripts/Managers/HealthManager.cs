@@ -8,14 +8,9 @@ public class HealthManager : StaticInstance<HealthManager> {
 
   private int CurrentHealth;
 
-  protected override void Awake() {
-    base.Awake();
-    GameManager.OnGameStart += Initialize;
-    PlayerCollider.OnToolHit += TakeDamage;
-  }
-  private void OnDestroy() {
-    GameManager.OnGameStart -= Initialize;
-    PlayerCollider.OnToolHit -= TakeDamage;
+  void Start() {
+    GameManager.Instance.OnGameStart += Initialize;
+    PlayerCollider.Instance.OnToolHit += TakeDamage;
   }
 
   void Initialize() {

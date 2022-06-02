@@ -9,20 +9,14 @@ public class LeadClaimedManager : StaticInstance<HealthManager> {
 
   private int LeadClaimedCount;
 
-  protected override void Awake() {
-    base.Awake();
-    GameManager.OnGameStart += Initialize;
-    PlayerCollider.OnLeadClaimed += LeadClaimed;
+  void Start() {
+    GameManager.Instance.OnGameStart += Initialize;
+    PlayerCollider.Instance.OnLeadClaimed += LeadClaimed;
   }
 
   void Initialize() {
     LeadClaimedCount = 0;
     SetClaimCounter(LeadClaimedCount);
-  }
-
-  private void OnDestroy() {
-    GameManager.OnGameStart -= Initialize;
-    PlayerCollider.OnLeadClaimed -= LeadClaimed;
   }
 
   void SetClaimCounter(int claim) {
