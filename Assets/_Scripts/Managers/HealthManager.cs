@@ -6,6 +6,7 @@ public class HealthManager : StaticInstance<HealthManager> {
 
   [SerializeField] GameObject[] HealthIcons;
 
+  private int MaxHealth;
   private int CurrentHealth;
 
   void Start() {
@@ -14,30 +15,31 @@ public class HealthManager : StaticInstance<HealthManager> {
   }
 
   void Initialize() {
-    setHealth(HealthIcons.Length);
+    MaxHealth = HealthIcons.Length;
+    setHealth(MaxHealth);
   }
 
   void setHealth(int health) {
-    if (health < 0) { return; }
+    health = Mathf.Clamp(health, 0, MaxHealth);
 
     GameObject[] activeIcons = HealthIcons[..health];
     GameObject[] deactiveIcons = HealthIcons[health..];
 
-    setIconActives(activeIcons, true);
-    setIconActives(deactiveIcons, false);
+    changeIconVisibility(activeIcons, true);
+    changeIconVisibility(deactiveIcons, false);
 
 
     CurrentHealth = health;
   }
 
-  void setIconActives(GameObject[] icons, bool active) {
+  void changeIconVisibility(GameObject[] icons, bool visible) {
     foreach (var icon in icons) {
-      icon.SetActive(active);
+      icon.SetActive(visible);
     }
   }
 
   void TakeDamage(Tool tool) {
-    setHealth(CurrentHealth - 1);
+    setHealth(CurrentHealth - tool.GetDamage());
 
     if (CurrentHealth <= 0) {
       Die();

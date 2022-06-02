@@ -6,13 +6,17 @@ public abstract class DropableBase : MonoBehaviour {
     Rotate();
   }
 
-  protected virtual float RotationPerSecond() => 90f;
-  protected virtual Vector3 RotationAxis() => new Vector3(0, RotationPerSecond(), 0);
+  public virtual DropableType GetDropableType() {
+    throw new System.Exception("Method GetDropableType not implemented");
+  }
+
+  protected virtual float RotationSpeed() => 90f;
+
+  protected virtual Vector3 RotationAxis() => new Vector3(0, RotationSpeed(), 0);
+
   protected void Rotate() {
     transform.Rotate(RotationAxis() * Time.deltaTime);
   }
-
-  public abstract DropableType GetDropableType();
 }
 
 public enum DropableType {
