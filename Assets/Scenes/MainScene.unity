@@ -4584,6 +4584,7 @@ GameObject:
   - component: {fileID: 3240100657465598185}
   - component: {fileID: 8797512169894902423}
   - component: {fileID: 8797512169894902424}
+  - component: {fileID: 8797512169894902426}
   - component: {fileID: 8797512169894902422}
   - component: {fileID: 8797512169894902425}
   m_Layer: 0
@@ -4788,8 +4789,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 3240100657465598185}
-  WalkSpeed: 5
-  RunSpeed: 10
 --- !u!54 &8797512169894902423
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4829,6 +4828,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dec398fd954d2b842b5983c15817201f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8797512169894902426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8168643627391819817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8dddd5519e385049b21b00c45b505ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &9026871042163106293
