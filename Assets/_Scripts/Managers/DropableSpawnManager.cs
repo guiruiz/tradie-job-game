@@ -8,8 +8,8 @@ public class DropableSpawnManager : MonoBehaviour {
   private Coroutine SpawnRoutine;
 
   void Start() {
-    GameManager.Instance.OnGameStart += StartSpawning;
-    GameManager.Instance.OnGameOver += StopSpawning;
+    EventsManager.Instance.OnGameStart += StartSpawning;
+    EventsManager.Instance.OnGameOver += StopSpawning;
   }
   private void StartSpawning() {
     SpawnRoutine = StartCoroutine(SpawnDropables());

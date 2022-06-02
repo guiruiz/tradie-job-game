@@ -9,7 +9,7 @@ public class CameraShake : MonoBehaviour {
 
 
   private void Start() {
-    PlayerCollider.Instance.OnToolHit += ShakeCamera;
+    EventsManager.Instance.OnToolHit += ShakeCamera;
   }
 
   void ShakeCamera(Tool _) {

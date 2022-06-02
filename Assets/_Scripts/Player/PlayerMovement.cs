@@ -21,12 +21,12 @@ public class PlayerMovement : MonoBehaviour {
   private bool CanMove = false;
 
   void Start() {
-    GameManager.Instance.OnGameStart += AllowMove;
-    GameManager.Instance.OnGameOver += DisallowMove;
-    PlayerInput.Instance.OnPlayerMove += Move;
-    PlayerInput.Instance.OnPlayerMove += RotateTo;
-    PlayerInput.Instance.OnPlayerStop += Stop;
-    PlayerInput.Instance.OnSetPlayerMoveMode += SetPlayerMoveMode;
+    EventsManager.Instance.OnGameStart += AllowMove;
+    EventsManager.Instance.OnGameOver += DisallowMove;
+    EventsManager.Instance.OnPlayerMove += Move;
+    EventsManager.Instance.OnPlayerMove += RotateTo;
+    EventsManager.Instance.OnPlayerStop += Stop;
+    EventsManager.Instance.OnSetPlayerMoveMode += SetPlayerMoveMode;
 
     SetWalkingBounds();
     RotateTo(CurrentDirection);

@@ -10,8 +10,8 @@ public class LeadClaimedManager : StaticInstance<HealthManager> {
   private int LeadClaimedCount;
 
   void Start() {
-    GameManager.Instance.OnGameStart += Initialize;
-    PlayerCollider.Instance.OnLeadClaimed += LeadClaimed;
+    EventsManager.Instance.OnGameStart += Initialize;
+    EventsManager.Instance.OnLeadClaimed += LeadClaimed;
   }
 
   void Initialize() {

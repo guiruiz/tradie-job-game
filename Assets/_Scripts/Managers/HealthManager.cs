@@ -10,8 +10,8 @@ public class HealthManager : StaticInstance<HealthManager> {
   private int CurrentHealth;
 
   void Start() {
-    GameManager.Instance.OnGameStart += Initialize;
-    PlayerCollider.Instance.OnToolHit += TakeDamage;
+    EventsManager.Instance.OnGameStart += Initialize;
+    EventsManager.Instance.OnToolHit += TakeDamage;
   }
 
   void Initialize() {

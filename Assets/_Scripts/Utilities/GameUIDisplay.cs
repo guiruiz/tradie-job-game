@@ -4,8 +4,8 @@ public class GameUIDisplay : MonoBehaviour {
   [SerializeField] GameObject GameOverUI;
 
   void Start() {
-    GameManager.Instance.OnGameStart += OnGameStart;
-    GameManager.Instance.OnGameOver += OnGameOver;
+    EventsManager.Instance.OnGameStart += OnGameStart;
+    EventsManager.Instance.OnGameOver += OnGameOver;
 
     GameStartUI.SetActive(true);
     GameOverUI.SetActive(false);

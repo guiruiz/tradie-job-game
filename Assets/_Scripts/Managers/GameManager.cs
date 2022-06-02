@@ -2,8 +2,6 @@ using System;
 using UnityEngine;
 
 public class GameManager : StaticInstance<GameManager> {
-  public event Action OnGameStart;
-  public event Action OnGameOver;
   private bool isPlaying = false;
 
   void Update() {
@@ -14,11 +12,11 @@ public class GameManager : StaticInstance<GameManager> {
 
   public void StartGame() {
     isPlaying = true;
-    OnGameStart?.Invoke();
+    EventsManager.Instance.StartGame();
   }
 
   public void GameOver() {
     isPlaying = false;
-    OnGameOver?.Invoke();
+    EventsManager.Instance.GameOver();
   }
 }
